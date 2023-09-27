@@ -4,9 +4,6 @@ const isProd = process.env.NODE_ENV === 'production'
 const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL
 
 const nextConfig = {
-  experimental: {
-    nextScriptWorkers: true
-  },
   reactStrictMode: false,
   compiler: {
     emotion: true
