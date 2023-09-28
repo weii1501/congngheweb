@@ -2,7 +2,7 @@
 
 const account = {
   isAuth: true,
-  username: 'Jaydon Frankie',
+  username: 'admin',
   email: 'demo@minimals.cc',
   profileImage: '/assets/images/avatars/avatar_default.jpg'
 }

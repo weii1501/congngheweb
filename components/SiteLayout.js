@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { Context } from '@/hooks/context'
 import { Grid } from '@mui/material'
-import SidebarRight from "@/components/side-bar/SidebarRight";
+import SidebarRight from '@/components/side-bar/SidebarRight'
 
 // ----------------------------------------------------------------------
 
