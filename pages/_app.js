@@ -68,12 +68,21 @@ export default function App ({ Component, pageProps }) {
       <ThemeProvider>
         <ScopedCssBaseline>
           <Provider store={store()}>
-            <UserProvider>
-              <Layout>
-                <GoogleAnalytics trackPageViews />
-                <Component {...pageProps} />
-              </Layout>
-            </UserProvider>
+            {router.pathname === '/login' || router.pathname === '/register'
+              ? (
+                <UserProvider>
+                  <GoogleAnalytics trackPageViews />
+                  <Component {...pageProps} />
+                </UserProvider>
+                )
+              : (
+                <UserProvider>
+                  <Layout>
+                    <GoogleAnalytics trackPageViews />
+                    <Component {...pageProps} />
+                  </Layout>
+                </UserProvider>
+                )}
           </Provider>
         </ScopedCssBaseline>
       </ThemeProvider>

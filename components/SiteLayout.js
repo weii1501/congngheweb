@@ -10,7 +10,7 @@ import { Grid } from '@mui/material'
 
 const GoTop = dynamic(() => import('@/components/GoTop'), { ssr: false })
 const Toast = dynamic(() => import('@/components/Toast'), { ssr: false })
-// const HeaderV2 = dynamic(() => import('@/components/header-v2'), { ssr: false })
+const Header = dynamic(() => import('@/components/header'), { ssr: false })
 // const SideBar = dynamic(() => import('@/components/side-bar'), { ssr: false })
 // const SidebarRight = dynamic(() => import('@/components/side-bar/SidebarRight'), { ssr: false })
 const SiteFooter = dynamic(() => import('@/components/SiteFooter'), { ssr: false })
@@ -60,6 +60,7 @@ function SiteLayout (props) {
   return (
     <>
       <StyledRoot>
+        <Header onOpenNav={() => setOpen(true)} />
         <StyledGrid
           container
           direction='row'
