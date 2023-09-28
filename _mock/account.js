@@ -1,9 +1,10 @@
 // ----------------------------------------------------------------------
 
 const account = {
-  displayName: 'Jaydon Frankie',
+  isAuth: true,
+  username: 'Jaydon Frankie',
   email: 'demo@minimals.cc',
-  photoURL: '/assets/images/avatars/avatar_default.jpg'
+  profileImage: '/assets/images/avatars/avatar_default.jpg'
 }
 
 export default account

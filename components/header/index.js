@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { styled } from '@mui/material/styles'
-import { AppBar, Box, Grid, IconButton, Toolbar } from '@mui/material'
+import { AppBar, Box, Button, Grid, IconButton, Toolbar } from '@mui/material'
 import Iconify from '@/components/iconify'
 import Logo from '@/components/logo'
-import Searchbar from "@/components/header/Searchbar";
+import Searchbar from '@/components/header/Searchbar'
+import AccountPopover from '@/components/header/AccountPopover'
+import NotificationsPopover from '@/components/header/NotificationsPopover'
+import { Context } from '@/hooks/context'
+import SearchbarSlide from '@/components/header/SearchbarSlide'
 
 const HEADER_MOBILE = 64
 
@@ -28,6 +32,8 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }))
 
 function Header ({ onOpenNav }) {
+  const { user } = useContext(Context)
+
   return (
     <StyledRoot>
       <StyledToolbar>
@@ -77,6 +83,65 @@ function Header ({ onOpenNav }) {
             md={0}
           >
             <Searchbar />
+          </Grid>
+
+          {/*  them cau hoi */}
+          <Grid
+            item
+            lg={2}
+            md={2}
+          >
+            <Box
+              sx={{
+                width: '100%',
+                maxHeight: '40px',
+                display: {
+                  lg: 'flex',
+                  xs: 'none'
+                },
+                justifyContent: 'center',
+                alignItems: 'center',
+                overflow: 'hidden'
+              }}
+            >
+              <Button
+                // onClick={handleOpen}
+                type='button'
+                variant='contained'
+                sx={{
+                  height: '40px',
+                  fontSize: '12px'
+                }}
+              >
+                <Iconify icon='icons8:plus' sx={{ width: 14, height: 14, marginRight: '2px' }} />
+                Thêm câu hỏi
+              </Button>
+            </Box>
+          </Grid>
+
+          {/*    avt */}
+          <Grid
+            item
+            lg={1}
+            xs={1}
+          >
+            <Box
+              sx={{
+                width: '100%',
+                maxHeight: '40px',
+                display: 'flex',
+                justifyContent: {
+                  lg: 'center',
+                  xs: 'end'
+                },
+                alignItems: 'center',
+                overflow: 'hidden'
+              }}
+            >
+              <SearchbarSlide />
+              {user && <NotificationsPopover />}
+              <AccountPopover />
+            </Box>
           </Grid>
         </Grid>
       </StyledToolbar>
