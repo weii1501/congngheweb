@@ -5,13 +5,14 @@ import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import { Context } from '@/hooks/context'
 import { Grid } from '@mui/material'
+import SidebarRight from "@/components/side-bar/SidebarRight";
 
 // ----------------------------------------------------------------------
 
 const GoTop = dynamic(() => import('@/components/GoTop'), { ssr: false })
 const Toast = dynamic(() => import('@/components/Toast'), { ssr: false })
 const Header = dynamic(() => import('@/components/header'), { ssr: false })
-// const SideBar = dynamic(() => import('@/components/side-bar'), { ssr: false })
+const SideBar = dynamic(() => import('@/components/side-bar'), { ssr: false })
 // const SidebarRight = dynamic(() => import('@/components/side-bar/SidebarRight'), { ssr: false })
 const SiteFooter = dynamic(() => import('@/components/SiteFooter'), { ssr: false })
 
@@ -73,14 +74,12 @@ function SiteLayout (props) {
             lg={isGetLeftSideBar() ? 2 : 0}
             sx={{
               position: 'relative',
-              // borderRight: router.pathname !== '/user/[slug]' && `1px solid ${theme.palette.divider}`,
+              borderRight: router.pathname !== '/user/[slug]' && `1px solid ${theme.palette.divider}`,
               overflow: 'hidden',
               display: isGetLeftSideBar() ? 'block' : 'none'
             }}
           >
-            <div>
-              sidebar
-            </div>
+            {router.pathname === '/user/[slug]' ? <></> : <SideBar openNav={open} onCloseNav={() => setOpen(false)} />}
           </Grid>
 
           <Grid
@@ -110,7 +109,7 @@ function SiteLayout (props) {
               display: listHideRightSideBar.includes(router.pathname) ? 'none' : 'block'
             }}
           >
-            Sideright
+            <SidebarRight />
           </Grid>
         </StyledGrid>
         <GoTop />
