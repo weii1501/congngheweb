@@ -8,6 +8,10 @@ import { buildFullUrl } from '@/utils/utils'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import ArticleItem from '@/components/articles/ArticleItem'
+import ThreadItem from '@/components/threads/ThreadItem'
+import NoSSR from '@/components/NoSSR'
+
+const round = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 export async function getServerSideProps (context) {
   const breadcrumbs = [
@@ -24,7 +28,7 @@ export async function getServerSideProps (context) {
   }
 }
 
-export default function Home ({ breadcrumbs }) {
+function Home ({ breadcrumbs }) {
   const pageDesc = 'Nơi mọi người có thể chia sẻ kiến thức, tham gia thảo luận và tìm kiếm giải đáp về lĩnh vực tin học cũng như công nghệ thông tin tại Việt Nam.'
   const router = useRouter()
   const [value, setValue] = React.useState('article')
@@ -93,14 +97,13 @@ export default function Home ({ breadcrumbs }) {
           mt={2}
           divider={<Divider flexItem sx={{ borderColor: theme.palette.grey[200] }} />}
         >
-          <ArticleItem />
-          <ArticleItem />
-          <ArticleItem />
-          <ArticleItem />
-          <ArticleItem />
-          <ArticleItem />
-          <ArticleItem />
-          <ArticleItem />
+          {value === 'article' && round.map((item, index) => (
+            <ArticleItem key={index} />
+          ))}
+
+          {value === 'thread' && round.map((item, index) => (
+            <ThreadItem key={index} />
+          ))}
         </Stack>
 
         <Divider flexItem sx={{ borderColor: theme.palette.grey[200], mt: 4 }} />
@@ -149,6 +152,8 @@ export default function Home ({ breadcrumbs }) {
     </>
   )
 }
+
+export default NoSSR(Home)
 
 const Styledh1 = styled('h1')(({ theme }) => ({
   fontSize: '32px',

@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react'
 import { Box, Stack } from '@mui/material'
-import { styled } from '@mui/material/styles'
+import { styled, useTheme } from '@mui/material/styles'
 import { StyledTag } from '@/components/articles/styles'
 import { useRouter } from 'next/router'
 
 function SidebarRight () {
+      const theme = useTheme()
   const router = useRouter()
   const [hotTags, setHotTags] = useState([])
   // const { tableOfContents } = useContext(Context)
@@ -36,7 +37,8 @@ function SidebarRight () {
         },
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        alignItems: 'flex-start'
+        alignItems: 'flex-start',
+        borderLeft: `1px solid ${theme.palette.divider}`
       }}
     >
       {router.pathname !== '/article/[article]' && (
