@@ -7,6 +7,7 @@ import { Pagination, PaginationItem } from '@mui/lab'
 import { buildFullUrl } from '@/utils/utils'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import ArticleItem from '@/components/articles/ArticleItem'
 
 export async function getServerSideProps (context) {
   const breadcrumbs = [
@@ -81,6 +82,17 @@ export default function Home ({ breadcrumbs }) {
           </Stack>
         </Box>
         <Divider flexItem sx={{ borderColor: theme.palette.grey[200] }} />
+      </Container>
+
+      <Container>
+        <ArticleItem />
+        <ArticleItem />
+        <ArticleItem />
+        <ArticleItem />
+        <ArticleItem />
+        <ArticleItem />
+        <ArticleItem />
+        <ArticleItem />
       </Container>
 
       <Container
