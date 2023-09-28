@@ -85,14 +85,25 @@ export default function Home ({ breadcrumbs }) {
       </Container>
 
       <Container>
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
-        <ArticleItem />
+        <Stack
+          direction='column'
+          spacing={3}
+          alignItems='start'
+          justifyContent='start'
+          mt={2}
+          divider={<Divider flexItem sx={{ borderColor: theme.palette.grey[200] }} />}
+        >
+          <ArticleItem />
+          <ArticleItem />
+          <ArticleItem />
+          <ArticleItem />
+          <ArticleItem />
+          <ArticleItem />
+          <ArticleItem />
+          <ArticleItem />
+        </Stack>
+
+        <Divider flexItem sx={{ borderColor: theme.palette.grey[200], mt: 4 }} />
       </Container>
 
       <Container
@@ -100,7 +111,7 @@ export default function Home ({ breadcrumbs }) {
           display: 'flex',
           justifyContent: 'end',
           alignItems: 'center',
-          pt: 1
+          mt: 1
         }}
       >
         <Stack spacing={2} my={1}>
