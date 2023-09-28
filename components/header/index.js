@@ -119,7 +119,7 @@ function Header ({ onOpenNav }) {
             </Box>
           </Grid>
 
-          {/*    avt */}
+          {/*    avtar  */}
           <Grid
             item
             lg={1}
