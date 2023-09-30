@@ -52,9 +52,9 @@ export default React.memo(function AccountPopover () {
     }
   ]
 
-  useEffectOnce(() => {
-    setUser(account)
-  })
+  // useEffectOnce(() => {
+  //   setUser(account)
+  // })
 
   // console.log('AccountPopover')
   const handleOpen = (event) => {
@@ -74,33 +74,9 @@ export default React.memo(function AccountPopover () {
 
   const handleLogout = () => {
     console.log('handleLogout')
-    // logout().then(r => {
-    //   if (r?.data?.ok) {
-    //     setUser(null)
-    //     Cookies.remove('jwtToken')
-    //     Cookies.remove('jwtRefresh')
-    //     router.push('/login')
-    //   } else {
-    //     toast.warning('Chưa đăng xuất được', {
-    //       position: toast.POSITION.TOP_RIGHT,
-    //       autoClose: 3000
-    //     })
-    //   }
-    //   setOpen(null)
-    // }).catch(e => {
-    //   toast.error(e?.message, {
-    //     position: toast.POSITION.TOP_RIGHT,
-    //     autoClose: 3000
-    //   })
-    // })
-  }
-
-  if (lock && !user) {
-    return (
-      <div className='w-12 inline-flex items-center justify-center'>
-        <CircularProgress />
-      </div>
-    )
+    setUser(null)
+    setOpen(null)
+    router.push('/login')
   }
   // console.log('user', user)
   return (

@@ -52,11 +52,11 @@ function SiteLayout (props) {
     } else if (i === router.pathname) return <>{props.children}</>
   }
 
-  useEffect(() => {
-    if (user) {
-      router.replace('/home')
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (user) {
+  //     router.replace('/')
+  //   }
+  // }, [])
 
   return (
     <>

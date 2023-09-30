@@ -15,6 +15,7 @@ import ThemeProvider from '@/theme'
 import Layout from '@/components/Layout'
 import UserProvider from '@/hooks/context'
 import { useRouter } from 'next/router'
+import Toast from "@/components/Toast";
 
 dayjs.extend(relativeTime)
 dayjs.locale('vi')
@@ -73,6 +74,7 @@ export default function App ({ Component, pageProps }) {
                 <UserProvider>
                   <GoogleAnalytics trackPageViews />
                   <Component {...pageProps} />
+                  <Toast />
                 </UserProvider>
                 )
               : (
