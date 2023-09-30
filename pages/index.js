@@ -42,8 +42,31 @@ function Home ({ breadcrumbs }) {
       <BreadcrumbsContainer breadcrumbs={breadcrumbs} />
 
       <Container>
-        <Stack direction='row' alignItems='center' justifyContent='start' spacing={1} mb={2}>
-          <Iconify icon='uiw:message' width={24} height={24} />
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='start'
+          spacing={{
+            lg: 1,
+            md: 1,
+            sm: 1,
+            xs: 0
+          }}
+          mb={2}
+        >
+          <Iconify
+            icon='uiw:message'
+            width={24}
+            height={24}
+            sx={{
+              display: {
+                lg: 'block',
+                md: 'block',
+                sm: 'block',
+                xs: 'none'
+              }
+            }}
+          />
           <Styledh1>
             DIỄN ĐÀN CÔNG NGHỆ THÔNG TIN
           </Styledh1>
@@ -158,9 +181,21 @@ export default NoSSR(Home)
 const Styledh1 = styled('h1')(({ theme }) => ({
   fontSize: '32px',
   fontWeight: 600,
-  lineHeight: '40px',
+  // lineHeight: '40px',
   color: theme.palette.text.primary,
-  marginBottom: '16px'
+  marginBottom: '16px',
+  [theme.breakpoints.down('lg')]: {
+    fontSize: '28px'
+  },
+  [theme.breakpoints.down('md')]: {
+    fontSize: '24px'
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '20px'
+  },
+  [theme.breakpoints.down('xs')]: {
+    fontSize: '16px'
+  }
 }))
 
 export const Styledp = styled('p')(({ theme }) => ({

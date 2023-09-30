@@ -64,8 +64,32 @@ function TopicPage ({ topic, breadcrumbs }) {
         }}
       >
 
-        <Stack direction='row' alignItems='center' justifyContent='start' spacing={1} mb={0} mt={1}>
-          <Iconify icon={topic.icon ?? 'uiw:message'} width={24} height={24} />
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='start'
+          spacing={{
+            lg: 1,
+            md: 1,
+            sm: 1,
+            xs: 0
+          }}
+          mb={0}
+          mt={1}
+        >
+          <Iconify
+            icon={topic.icon ?? 'uiw:message'}
+            width={24}
+            height={24}
+            sx={{
+              display: {
+                lg: 'block',
+                md: 'block',
+                sm: 'block',
+                xs: 'none'
+              }
+            }}
+          />
           <Styledh1 sx={{ marginBottom: '4px' }}>
             Chủ đề: {topic.title} {topic?.otherName && topic?.otherName !== 'Đang cập nhật' && `(${topic?.otherName})`}
           </Styledh1>

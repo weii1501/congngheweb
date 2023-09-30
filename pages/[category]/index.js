@@ -39,8 +39,31 @@ function Index ({ data, breadcrumbs }) {
       <BreadcrumbsContainer breadcrumbs={breadcrumbs} />
 
       <Container>
-        <Stack direction='row' alignItems='center' justifyContent='start' spacing={1} mb={2} mt={1}>
-          <Iconify icon={data.icon ?? 'uiw:message'} width={24} height={24} />
+        <Stack
+          direction='row'
+          alignItems='center'
+          justifyContent='start'
+          spacing={{
+            lg: 1,
+            md: 1,
+            sm: 1,
+            xs: 0
+          }}
+          mb={2}
+          mt={1}
+        >
+          <Iconify
+            icon={data.icon ?? 'uiw:message'}
+            width={24} height={24}
+            sx={{
+              display: {
+                lg: 'block',
+                md: 'block',
+                sm: 'block',
+                xs: 'none'
+              }
+            }}
+          />
           <Styledh1>
             Chuyên mục: {data.name} {data?.otherName && data.otherName !== 'Đang cập nhật' && `(${data?.otherName})`}
           </Styledh1>
